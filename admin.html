@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<body>
+
+    <div class="log__in">
+        <div class="login__content">
+            <h1>Admin Furniture</h1>
+            <img src="https://themes.muffingroup.com/be/furniturestore/wp-content/uploads/2022/06/furniturestore.svg"
+                alt="">
+            <div class="login">
+                <p>Log-in</p>
+                <label for=""> Acount
+                </label>
+                <input id="acount" type="email">
+                <label for=""> Password
+                </label>
+                <input id="password" type="password">
+                <button onclick="login()">Log-in</button>
+                <a href=""> Fogot your acount</a>
+            </div>
+        </div>
+    </div>
+    <div class="admin__content">
+        <div class="admin__menu">
+            <div class="admin__menu__top">
+                <img src="https://themes.muffingroup.com/be/furniturestore/wp-content/uploads/2022/06/furniturestore.svg"
+                    alt="">
+                <i class="fa fa-bars"></i>
+            </div>
+            <hr>
+            <h5>Menu</h5>
+            <ul>
+                <li>Product</li>
+                <li>Managerment</li>
+                <li>Chat box</li>
+                <li>Purches Order </li>
+            </ul>
+        </div>
+        <div class="admin__right">
+            <div class="head__product">
+                <div class="head__product__left">
+                    <h4>Product Website</h4>
+                    <p>This is an example dashboard created using build-in elements and components.</p>
+                </div>
+                <div class="head__product__right">
+                    <i class="fa fa-bell"></i>
+                    <i class="fa fa-user"></i>
+                    <i class="fa fa-sign-out-alt"></i>
+                </div>
+            </div>
+            <!-- list__item -->
+            <div class="list__item">
+               <div class="list__content">
+                <button onclick="showInsert()">Insert Product</button>
+                <table class="listAdmin" border="1px" cellspacing="0px" width="100%"></table>
+               </div>
+            </div>
+        </div>
+        <button style="z-index: 11;  position: fixed; right: 0;" onclick="reset()">reset</button>
+
+    </div>
+    <div class="insert__product">
+        <div class="insert__content">
+            <h4>Insert product</h4>
+            <label for=""> <p>Name</p>
+                <input id="name" type="text">
+            </label>
+            <label for=""> <p>Image</p>
+                <input id="image" type="text">
+            </label>
+            <label for=""> <p>Price</p>
+                <input id="price" type="text">
+            </label>
+            <label for=""> <p>Discount</p>
+                <input id="discount" type="text">
+            </label>
+            <label for=""> <p>Catarary</p>
+                <input id="cata" type="text">
+            </label>
+            <label for=""> <p>Vote</p>
+                <input id="vote" type="text">
+            </label>
+            <button onclick="insert()">Insert</button>
+        </div>
+    </div>
+
+    
+    <script src="./js/product.js"></script>
+    <script src="./js/both.js"></script>
+    <script src="./js/admin.js"></script>
+
+</body>
+
+</html>
