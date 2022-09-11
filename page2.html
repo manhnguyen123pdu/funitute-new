@@ -426,12 +426,12 @@
                 <input placeholder="United States(US)" id="Country" type="text">
                 <label for="Country">Street address *
                 </label>
-                <input placeholder="House number and street name " id="Country" type="text">
-                <input placeholder="Apartment, suite,unit, etc.(optional)" id="Country" type="text">
+                <input placeholder="House number and street name " id="street" type="text">
+                <input placeholder="Apartment, suite,unit, etc.(optional)" id="apartment" type="text">
                 <h4>Additional information</h4>
                 <label for="">
                 </label>
-                <textarea placeholder="Note about your order, e.g. spacial note for delivery." name="" id=""
+                <textarea id="addinfo" placeholder="Note about your order, e.g. spacial note for delivery." name="" id=""
                     rows="10"></textarea>
             </div>
             <div class="order__right">
@@ -454,12 +454,13 @@
                         if you require assistance or wish to make alternate arrangements.</span>
                     <p>Your personal data will be used to process your order, support your experience throughout this
                         website, and for other purposes described in our <a href="">privacy policy</a>.</p>
-                    <button>Place order</button>
+                    <button  onclick="done()" >Place order</button>
                     <a href="">Return to cart</a>
                 </div>
             </div>
         </div>
     </section>
+    <script src="./js/doneOder.js"></script>
     <script src="./js/page2.js"></script>
     <script src="./js/both.js"></script>
 </body>

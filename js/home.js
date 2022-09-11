@@ -1,21 +1,5 @@
-
-productitem = [
-    new item('17', './img/item1.PNG', 'Batchata lamp', 4, '15.00', 'Lamps', '1'),
-    new item('', './img/item2.PNG', 'Circle corners table', 3, '145.00', 'Tables', '1'),
-    new item('18', './img/item3.PNG', 'Circle lamp', 4, '120.00', 'lamps', '1'),
-    new item('', './img/item4.PNG', 'Cozy armchair', 2, '221.99', 'Chairs', '1'),
-    new item('7', './img/item5.PNG', 'Dining table', 5, '7.100', 'Tables', '1'),
-    new item('2', './img/item6.PNG', 'Fancy armchair', 5, '855.00', 'Chairs', '1'),
-]
-
-if (JSON.parse(window.localStorage.getItem('product1')).length == 0) {
-    localStorage.setItem('product1', JSON.stringify(productitem));
-}
-console.log(JSON.parse(window.localStorage.getItem('product1')).length)
-product = JSON.parse(window.localStorage.getItem('product1'));
+product = JSON.parse(window.localStorage.getItem('product'));
 display();
-
-
 function display() {
     let content = "";
     for (i = 0; i < product.length; i++) {

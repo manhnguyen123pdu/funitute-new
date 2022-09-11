@@ -9,7 +9,7 @@ html, body {
   margin: 0;
 }
 
-.btn, .insert__product .insert__content button, .admin__content .admin__right .list__item .list__content button, .log__in .login__content .login button, .order .order__content .order__right .order__content button:first-of-type, .content .item .but button, .slider .slider__content .slider__text .btn2, .slider .slider__content .slider__text .btn1, .intro .intro__trend .intro__trend__content .introtrend__right button, footer .footer__bottom .footer__left button, footer .footer__sign .footersign__right button {
+.btn, .insert__product .insert__content button, .admin__content .admin__right .menu__product .list__item .list__content button, .log__in .login__content .login button, .order .order__content .order__right .order__content button:first-of-type, .content .item .but button, .slider .slider__content .slider__text .btn2, .slider .slider__content .slider__text .btn1, .intro .intro__trend .intro__trend__content .introtrend__right button, footer .footer__bottom .footer__left button, footer .footer__sign .footersign__right button {
   padding: 11px 30px;
   border-radius: 50px;
   border: none;
@@ -25,6 +25,14 @@ html, body {
   background-color: #FFB128;
   border-radius: 10px;
   margin: 25px;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
 }
 
 header {
@@ -1299,6 +1307,7 @@ footer .footer__bottom .footer__right a {
   list-style: none;
 }
 .admin__content .admin__menu ul li {
+  cursor: pointer;
   font-size: 16px;
   font-weight: 500;
   color: #0b3954;
@@ -1307,80 +1316,83 @@ footer .footer__bottom .footer__right a {
 .admin__content .admin__right {
   width: 75%;
 }
-.admin__content .admin__right .head__product {
+.admin__content .admin__right .menu__product {
+  display: none;
+}
+.admin__content .admin__right .menu__product .head__product {
   display: flex;
   align-items: center;
   padding: 20px;
 }
-.admin__content .admin__right .head__product .head__product__left {
+.admin__content .admin__right .menu__product .head__product .head__product__left {
   width: 80%;
 }
-.admin__content .admin__right .head__product .head__product__left h4 {
+.admin__content .admin__right .menu__product .head__product .head__product__left h4 {
   font-size: 25px;
   font-weight: 700;
   color: #ffb128;
   padding-bottom: 10px;
 }
-.admin__content .admin__right .head__product .head__product__left p {
+.admin__content .admin__right .menu__product .head__product .head__product__left p {
   font-size: 16px;
   font-weight: 500;
   color: #0b3954;
 }
-.admin__content .admin__right .head__product .head__product__right {
+.admin__content .admin__right .menu__product .head__product .head__product__right {
   width: 20%;
   display: flex;
   justify-content: end;
 }
-.admin__content .admin__right .head__product .head__product__right i {
+.admin__content .admin__right .menu__product .head__product .head__product__right i {
   padding: 0 10px;
 }
-.admin__content .admin__right .list__item .list__content {
+.admin__content .admin__right .menu__product .list__item .list__content {
   padding: 0 20px;
 }
-.admin__content .admin__right .list__item .list__content button {
+.admin__content .admin__right .menu__product .list__item .list__content button {
   background-color: #ffb128;
   color: white;
   margin: 20px 0;
 }
-.admin__content .admin__right .list__item .list__content table {
+.admin__content .admin__right .menu__product .list__item .list__content table {
   text-align: center;
 }
-.admin__content .admin__right .list__item .list__content table tr:first-child {
+.admin__content .admin__right .menu__product .list__item .list__content table tr:first-child {
   font-size: 18px;
   font-weight: 700;
   color: #0b3954;
 }
-.admin__content .admin__right .list__item .list__content table tr {
+.admin__content .admin__right .menu__product .list__item .list__content table tr {
   font-size: 18px;
   font-weight: 500;
   color: #000000;
 }
-.admin__content .admin__right .list__item .list__content table tr img {
+.admin__content .admin__right .menu__product .list__item .list__content table tr img {
   width: 100px;
   padding: 5px 0;
 }
-.admin__content .admin__right .list__item .list__content table tr td:nth-child(1) {
+.admin__content .admin__right .menu__product .list__item .list__content table tr td:nth-child(1) {
   width: 5%;
 }
-.admin__content .admin__right .list__item .list__content table tr td:nth-child(2) {
+.admin__content .admin__right .menu__product .list__item .list__content table tr td:nth-child(2) {
   width: 25%;
 }
-.admin__content .admin__right .list__item .list__content table tr td:nth-child(3) {
+.admin__content .admin__right .menu__product .list__item .list__content table tr td:nth-child(3) {
   width: 20%;
 }
-.admin__content .admin__right .list__item .list__content table tr td:nth-child(4) {
+.admin__content .admin__right .menu__product .list__item .list__content table tr td:nth-child(4) {
   width: 10%;
 }
-.admin__content .admin__right .list__item .list__content table tr td:nth-child(5) {
+.admin__content .admin__right .menu__product .list__item .list__content table tr td:nth-child(5) {
   width: 13%;
 }
-.admin__content .admin__right .list__item .list__content table tr td:nth-child(6) {
+.admin__content .admin__right .menu__product .list__item .list__content table tr td:nth-child(6) {
   width: 10%;
 }
-.admin__content .admin__right .list__item .list__content table tr td:nth-child(7) {
+.admin__content .admin__right .menu__product .list__item .list__content table tr td:nth-child(7) {
   width: 7%;
 }
-.admin__content .admin__right .list__item .list__content table tr td:nth-child(8) {
+.admin__content .admin__right .menu__product .list__item .list__content table tr td:nth-child(8) {
   width: 7%;
 }
 
@@ -1430,8 +1442,4 @@ footer .footer__bottom .footer__right a {
   background-color: #ffb128;
   color: white;
   margin: 20px 0;
-}
-
-.visible2 {
-  display: flex;
 }/*# sourceMappingURL=index.css.map */

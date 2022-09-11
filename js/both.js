@@ -1,24 +1,26 @@
 function wishQuanlity() {
     let wishitem = document.querySelectorAll('.wishitem');
-    for (i = 0; i < wishitem.length; i++) {
-        wishitem[i].innerHTML = JSON.parse(window.localStorage.getItem('list_departments')).length;
+    if (wishitem.length !== 0) {
+        for (i = 0; i < wishitem.length; i++) {
+            wishitem[i].innerHTML = JSON.parse(window.localStorage.getItem('list_departments')).length;
+        }
     }
 }
 
-wishQuanlity() 
+wishQuanlity()
 
-function viewcart(){
-    let shopcart =document.querySelector('.shopcart');
+function viewcart() {
+    let shopcart = document.querySelector('.shopcart');
     shopcart.classList.add('visible')
 }
 
-function out(){
-    let shopcart =document.querySelector('.shopcart');
+function out() {
+    let shopcart = document.querySelector('.shopcart');
     shopcart.classList.remove('visible')
 }
-let purlist=JSON.parse(window.localStorage.getItem('purchlist'));
-function purch2(arr){
-    purlist=arr;
+let purlist = JSON.parse(window.localStorage.getItem('purchlist'));
+function purch2(arr) {
+    purlist = arr;
     purch();
 }
 function purch() {
@@ -27,11 +29,11 @@ function purch() {
     let content2 = '';
     for (i = 0; i < purlist.length; i++) {
         let price
-        if(Number(purlist[i].discount)){
-             price=((Number(purlist[i].price)*Number(purlist[i].quanlity))*(100-Number(purlist[i].discount)))/100 ;
+        if (Number(purlist[i].discount)) {
+            price = ((Number(purlist[i].price) * Number(purlist[i].quanlity)) * (100 - Number(purlist[i].discount))) / 100;
         }
-        else{
-            price=(Number(purlist[i].price)*Number(purlist[i].quanlity));
+        else {
+            price = (Number(purlist[i].price) * Number(purlist[i].quanlity));
         }
         content2 += `
     <div class="product__item${i} ">
@@ -66,104 +68,126 @@ function purch() {
 }
 purch()
 // JSON.parse();
-function plus(i){
-    purlist[i].quanlity= Number(purlist[i].quanlity)+1;
-    purch()
-    total()
-    discount()
+function plus(i) {
+    purlist[i].quanlity = Number(purlist[i].quanlity) + 1;
+    purch();
+    total();
+    discount();
 }
-function minus(i){
-    if( Number(purlist[i].quanlity)==1){
+function minus(i) {
+    if (Number(purlist[i].quanlity) == 1) {
         remove(i);
-        purch()
-        total()
-        discount()
+        purch();
+        total();
+        discount();
     }
-    else{
-        purlist[i].quanlity= Number(purlist[i].quanlity)-1;
-        purch()
-        total()
-        discount()
+    else {
+        purlist[i].quanlity = Number(purlist[i].quanlity) - 1;
+        purch();
+        total();
+        discount();
     }
-   
+
 }
-function remove(i){
-    purlist.splice(i,1);
-    purch()
+function remove(i) {
+    purlist.splice(i, 1);
+    purch();
+    total();
+    discount();
 }
 
-function total(){
-    let sum=0;
-    let total=document.querySelectorAll('.total')
-    for(k=0;k<total.length;k++){
-    for(i=0;i<purlist.length;i++){
-        if(Number(purlist[i].discount)){
-           sum+=((Number(purlist[i].price)*Number(purlist[i].quanlity))*(100-Number(purlist[i].discount)))/100 ;
-       }
-       else{
-          sum+=(Number(purlist[i].price)*Number(purlist[i].quanlity));
-       }
-    }
-    total[k].innerHTML=sum.toFixed(2);
+function total() {
+    let sum = 0;
+    let total = document.querySelectorAll('.total')
+    for (k = 0; k < total.length; k++) {
+        for (i = 0; i < purlist.length; i++) {
+            if (Number(purlist[i].discount)) {
+                sum += ((Number(purlist[i].price) * Number(purlist[i].quanlity)) * (100 - Number(purlist[i].discount))) / 100;
+            }
+            else {
+                sum += (Number(purlist[i].price) * Number(purlist[i].quanlity));
+            }
+        }
+        total[k].innerHTML = sum.toFixed(2);
     }
 }
 total()
 
-function discount(){
-    let sum=0;
-    let subtotal=document.querySelectorAll('.Subtotall')
-    for(k=0;k<subtotal.length;k++){
-    for(i=0;i<purlist.length;i++){
-        if(Number(purlist[i].discount!=0)){
-           sum+=((Number(purlist[i].price)*Number(purlist[i].quanlity))*(Number(purlist[i].discount)))/100 ;
-       }
-     
-    }
-    subtotal[k].innerHTML=sum.toFixed(2);
+function discount() {
+    let sum = 0;
+    let subtotal = document.querySelectorAll('.Subtotall')
+    for (k = 0; k < subtotal.length; k++) {
+        for (i = 0; i < purlist.length; i++) {
+            if (Number(purlist[i].discount != 0)) {
+                sum += ((Number(purlist[i].price) * Number(purlist[i].quanlity)) * (Number(purlist[i].discount))) / 100;
+            }
 
-}
+        }
+        subtotal[k].innerHTML = sum.toFixed(2);
+    }
 }
 discount()
 
-function order(){
+function order() {
     document.querySelector('.order').classList.add('ordervisivle');
     listorder()
 }
-function outoder(){
+function outoder() {
     document.querySelector('.order').classList.remove('ordervisivle')
 }
-function listorder(){
-    let content3='';
-    let list__order= document.querySelector('.list__order')
-    let purlist=JSON.parse(window.localStorage.getItem('purchlist'));
-for(i=0;i<purlist.length;i++){
-    let price= ''
-    if(Number(purlist[i].discount)){
-        price=((Number(purlist[i].price)*Number(purlist[i].quanlity))*(100-Number(purlist[i].discount)))/100 ;
-   }
-   else{
-       price=(Number(purlist[i].price)*Number(purlist[i].quanlity));
-   }
-    content3+=`
+function listorder() {
+    let content3 = '';
+    let list__order = document.querySelector('.list__order')
+    let purlist = JSON.parse(window.localStorage.getItem('purchlist'));
+    for (i = 0; i < purlist.length; i++) {
+        let price = ''
+        if (Number(purlist[i].discount)) {
+            price = ((Number(purlist[i].price) * Number(purlist[i].quanlity)) * (100 - Number(purlist[i].discount))) / 100;
+        }
+        else {
+            price = (Number(purlist[i].price) * Number(purlist[i].quanlity));
+        }
+        content3 += `
     <div class="oder__item">
     <p>${purlist[i].name} x ${purlist[i].quanlity} </p>
     <p>$${price.toFixed(2)}</p>
     </div>
     `
+    }
+    let sum = 0;
+    for (i = 0; i < purlist.length; i++) {
+        if (Number(purlist[i].discount)) {
+            sum += ((Number(purlist[i].price) * Number(purlist[i].quanlity)) * (100 - Number(purlist[i].discount))) / 100;
+        }
+        else {
+            sum += (Number(purlist[i].price) * Number(purlist[i].quanlity));
+        }
+    }
+    list__order.innerHTML = content3;
+    document.querySelector('.totalOrder').innerHTML = sum.toFixed(2);
 }
-let sum=0;
-for(i=0;i<purlist.length;i++){
-    if(Number(purlist[i].discount)){
-       sum+=((Number(purlist[i].price)*Number(purlist[i].quanlity))*(100-Number(purlist[i].discount)))/100 ;
-   }
-   else{
-      sum+=(Number(purlist[i].price)*Number(purlist[i].quanlity));
-   }
-}
-list__order.innerHTML=content3;
-document.querySelector('.totalOrder').innerHTML=sum;
-}
+let arrPurchase = [];
+function done() {
+    let firstname = document.querySelector('#firstname').value;
+    let lastname = document.querySelector('#lastname').value;
+    let company = document.querySelector('#company').value;
+    let Country = document.querySelector('#Country').value;
+    let street = document.querySelector('#street').value;
+    let apartment = document.querySelector('#apartment').value;
+    let addinfo = document.querySelector('#addinfo').value;
+    if (JSON.parse(window.localStorage.getItem('purchlistOder')).length != 0) {
+        arrPurchase = JSON.parse(window.localStorage.getItem('purchlistOder'));
+    }
+    arrProduct = JSON.parse(window.localStorage.getItem('purchlist'));
+    arrPurchase.push(new listorder2(firstname, lastname, company, Country, street, apartment, addinfo, arrProduct));
+    localStorage.setItem('purchlistOder', JSON.stringify(arrPurchase));
+    console.log(JSON.parse(window.localStorage.getItem('purchlistOder')));
+    if (purlist.length != 0) {
+        purlist.splice(0, purlist.length);
+        purch();
+        total();
+        discount();
+    }
+    document.querySelector('.order').classList.remove('ordervisivle');
 
-function order(){
-   
 }

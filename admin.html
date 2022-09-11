@@ -47,30 +47,32 @@
             <hr>
             <h5>Menu</h5>
             <ul>
-                <li>Product</li>
+                <li onclick="menuProduct()">Product</li>
                 <li>Managerment</li>
                 <li>Chat box</li>
                 <li>Purches Order </li>
             </ul>
         </div>
         <div class="admin__right">
-            <div class="head__product">
-                <div class="head__product__left">
-                    <h4>Product Website</h4>
-                    <p>This is an example dashboard created using build-in elements and components.</p>
+            <div class="menu__product">
+                <div class="head__product">
+                    <div class="head__product__left">
+                        <h4>Product Website</h4>
+                        <p>This is an example dashboard created using build-in elements and components.</p>
+                    </div>
+                    <div class="head__product__right">
+                        <i class="fa fa-bell"></i>
+                        <i class="fa fa-user"></i>
+                        <i class="fa fa-sign-out-alt"></i>
+                    </div>
                 </div>
-                <div class="head__product__right">
-                    <i class="fa fa-bell"></i>
-                    <i class="fa fa-user"></i>
-                    <i class="fa fa-sign-out-alt"></i>
+                <!-- list__item -->
+                <div class="list__item">
+                    <div class="list__content">
+                        <button onclick="showInsert()">Insert Product</button>
+                        <table class="listAdmin" border="1px" cellspacing="0px" width="100%"></table>
+                    </div>
                 </div>
-            </div>
-            <!-- list__item -->
-            <div class="list__item">
-               <div class="list__content">
-                <button onclick="showInsert()">Insert Product</button>
-                <table class="listAdmin" border="1px" cellspacing="0px" width="100%"></table>
-               </div>
             </div>
         </div>
         <button style="z-index: 11;  position: fixed; right: 0;" onclick="reset()">reset</button>
@@ -79,29 +81,36 @@
     <div class="insert__product">
         <div class="insert__content">
             <h4>Insert product</h4>
-            <label for=""> <p>Name</p>
+            <label for="">
+                <p>Name</p>
                 <input id="name" type="text">
             </label>
-            <label for=""> <p>Image</p>
+            <label for="">
+                <p>Image</p>
                 <input id="image" type="text">
             </label>
-            <label for=""> <p>Price</p>
+            <label for="">
+                <p>Price</p>
                 <input id="price" type="text">
             </label>
-            <label for=""> <p>Discount</p>
+            <label for="">
+                <p>Discount</p>
                 <input id="discount" type="text">
             </label>
-            <label for=""> <p>Catarary</p>
+            <label for="">
+                <p>Catarary</p>
                 <input id="cata" type="text">
             </label>
-            <label for=""> <p>Vote</p>
+            <label for="">
+                <p>Vote</p>
                 <input id="vote" type="text">
             </label>
             <button onclick="insert()">Insert</button>
         </div>
+
     </div>
 
-    
+
     <script src="./js/product.js"></script>
     <script src="./js/both.js"></script>
     <script src="./js/admin.js"></script>
